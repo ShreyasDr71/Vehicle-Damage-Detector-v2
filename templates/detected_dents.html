@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detected Dents History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detected Dents History</h1>
+        {% if detected_dents %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Confidence</th>
+                        <th>Timestamp</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dent in detected_dents %}
+                        <tr>
+                            <td>{{ dent.type }}</td>
+                            <td>{{ dent.confidence }}</td>
+                            <td>{{ dent.timestamp }}</td>
+                            <td>
+                                {% if dent.file_path != 'live_feed' %}
+                                    <img src="{{ dent.file_path }}" alt="Detected Damage" width="100">
+                                {% else %}
+                                    <span>Detected in Live Feed</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No dents detected yet.</p>
+        {% endif %}
+        <br>
+        <a href="/"><button>Back to Home</button></a>
+    </div>
+</body>
+</html>

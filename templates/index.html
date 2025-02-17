@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Damage Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Damage Detection</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*,video/mp4" required>
+            <button type="submit">Upload & Detect</button>
+        </form>
+        <hr>
+        <a href="/live_feed"><button class="live-btn">Start Live Feed</button></a>
+        <a href="/detected_dents"><button class="history-btn">View Dents Detected</button></a>
+    </div>
+</body>
+</html>
