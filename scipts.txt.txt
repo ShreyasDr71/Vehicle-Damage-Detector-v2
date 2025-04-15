@@ -2,3 +2,8 @@ pip install --upgrade pip
 
 # Install pre-built wheel for Jetson Nano (Torch 1.13, CUDA 10.2)
 pip install https://nvidia.box.com/shared/static/o4tnz69o1x8v42j96q8a8wspiq4h0qom.whl
+
+
+sudo apt-get install curl gnupg
+curl -sSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/arm64/cuda-archive-keyring.gpg | sudo tee /usr/share/keyrings/cuda-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/arm64/ /" | sudo tee /etc/apt/sources.list.d/cuda.list
